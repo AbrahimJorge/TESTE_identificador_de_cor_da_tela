@@ -33,13 +33,11 @@ class ClickMode:
         if not self.active: return
             
         if button == mouse.Button.left:
-            # Proteção para não clicar nos menus
             bx, by = self.root.winfo_rootx(), self.root.winfo_rooty()
             bw, bh = self.root.winfo_width(), self.root.winfo_height()
             px, py = self.shared_panel.panel.winfo_rootx(), self.shared_panel.panel.winfo_rooty()
             pw, ph = self.shared_panel.panel.winfo_width(), self.shared_panel.panel.winfo_height()
             
-            # options_win check
             ox, oy = -1000, -1000
             ow, oh = 0, 0
             if hasattr(self, 'options_win') and self.options_win.state() != 'withdrawn':

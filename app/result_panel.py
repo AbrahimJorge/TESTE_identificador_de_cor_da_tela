@@ -47,8 +47,7 @@ class ResultPanel:
         
         px = self.panel.winfo_x()
         py = self.panel.winfo_y()
-        # Se as coordenadas forem negativas ou erradas ao iniciar, o Tkinter pode dar um aviso.
-        # Caso seja a primeira vez, usamos o +200+100. Mas winfo_x() costuma funcionar bem.
+
         if px <= 0 and py <= 0:
             px, py = 200, 100
         self.panel.geometry(f"300x50+{px}+{py}")
@@ -67,7 +66,6 @@ class ResultPanel:
             color_box = tk.Label(row, bg=hex_color, width=4, height=1)
             color_box.pack(side=tk.LEFT, padx=(0, 10))
             
-            # Se for apenas 1 cor (modo click), omite a porcentagem
             if len(colors) == 1:
                 text = f"{c['label']}"
             else:

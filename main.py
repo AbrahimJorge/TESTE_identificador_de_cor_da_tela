@@ -19,14 +19,14 @@ class MainMenu:
         self.drag_start_y = 0
         self.is_dragging_btn = False
 
-        # Shared panel for both modes
+       
         self.shared_panel = ResultPanel(self.root)
 
-        # Mode instances
+       
         self.click_mode = ClickMode(self.root, self.shared_panel)
         self.cropped_mode = CroppedMode(self.root, self.shared_panel)
 
-        # Main Button
+       
         self.btn_ligar = tk.Label(self.root, text="🎨\nLIGAR", bg="#333333", fg="white", 
                                   font=("Arial", 10, "bold"), cursor="hand2")
         self.btn_ligar.pack(fill=tk.BOTH, expand=True)
@@ -36,7 +36,7 @@ class MainMenu:
         self.btn_ligar.bind("<ButtonRelease-1>", self.on_btn_release)
         self.btn_ligar.bind("<ButtonPress-3>", self.quit_app)
 
-        # Options window (initially hidden)
+       
         self.options_win = tk.Toplevel(self.root)
         self.options_win.overrideredirect(True)
         self.options_win.attributes('-topmost', True)
@@ -58,12 +58,12 @@ class MainMenu:
         self.root.mainloop()
 
     def update_options_position(self):
-        # Position the options window directly to the right of the main button with 10px spacing
+       
         x = self.root.winfo_x() + self.root.winfo_width() + 10
         y = self.root.winfo_y()
         self.options_win.geometry(f"170x80+{x}+{y}")
 
-    # --- Dragging Functions ---
+   
     def on_btn_press(self, event):
         self.drag_start_x = event.x
         self.drag_start_y = event.y
@@ -83,7 +83,7 @@ class MainMenu:
         if not self.is_dragging_btn:
             self.toggle_menu()
 
-    # --- Menu Toggle ---
+   
     def toggle_menu(self):
         self.is_menu_open = not self.is_menu_open
         if self.is_menu_open:
@@ -93,7 +93,7 @@ class MainMenu:
         else:
             self.btn_ligar.config(bg="#333333")
             self.options_win.withdraw()
-            # Deactivate any active modes when closing the menu
+           
             self.click_mode.deactivate()
             self.cropped_mode.deactivate()
             self.reset_buttons()

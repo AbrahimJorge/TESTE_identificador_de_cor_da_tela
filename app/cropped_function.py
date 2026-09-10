@@ -12,7 +12,6 @@ class CroppedMode:
         self.shared_panel = shared_panel
         self.active = False
 
-        # --- Overlay Transparente para Desenho ---
         monitor = get_monitors()[0]
         self.sw = monitor.width
         self.sh = monitor.height
